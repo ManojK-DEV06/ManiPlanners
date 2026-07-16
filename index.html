@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManiPlanners | Premium Event Planners in Bengaluru</title>
+    <!-- Font Awesome for Functional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #b89742; /* Elegant Gold */
+            --dark: #111111;
+            --light: #faf8f5;
+            --text: #444444;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Marcellus', serif;
+            color: var(--dark);
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        section {
+            padding: 80px 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 1.1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 500;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+            max-width: 100%;
+        }
+
+        .hero-content h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            color: var(--white);
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Grid Layout System */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Celebrations Section */
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .card-img {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+            max-width: 100%;
+        }
+
+        .services-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-box {
+            text-align: center;
+            padding: 40px 20px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .service-box:hover {
+            border-color: var(--primary);
+            background-color: var(--light);
+        }
+
+        .service-box i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Why Choose Us & Brand Story Split Grid */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-content h2, .why-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .story-block {
+            margin-bottom: 25px;
+        }
+
+        .story-block h4 {
+            font-family: 'Marcellus', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Marcellus', serif;
+            font-size: 1.3rem;
+            margin: 0 auto 20px auto;
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f0ebe1;
+            max-width: 100%;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-card h4 {
+            font-family: 'Marcellus', serif;
+            color: var(--primary);
+        }
+
+        /* FAQ Accordion Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            color: var(--dark);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+            color: #666;
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+        }
+
+        /* Contact & Footer Section */
+        footer {
+            background-color: var(--dark);
+            color: #bbbbbb;
+            padding: 80px 20px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 50px;
+        }
+
+        .footer-brand h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            margin-bottom: 25px;
+            max-width: 350px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: var(--white);
+            font-family: 'Marcellus', serif;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .split-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Mani<span>Planners</span></a>
+            <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#celebrations">Celebrations</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h3>Bengaluru's Premier Event Planners</h3>
+            <h1>Curating Elevated & Memorable Experiences</h1>
+            <p>From grand luxury celebrations to beautifully managed elegant events, we bring your exact vision to life seamlessly.</p>
+            <a href="https://wa.me/917795770464" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> Plan Your Event With Us</a>
+        </div>
+    </section>
+
+    <!-- 3. Celebrations Section -->
+    <section id="celebrations" class="container">
+        <div class="section-title">
+            <h2>Celebrations We Craft</h2>
+            <p>Every milestone deserves an unforgettable celebration custom-tailored to perfection</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-body">
+                    <h3>Birthday Parties</h3>
+                    <p>Spectacular themes and flawless planning for unforgettable milestone birthdays.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-body">
+                    <h3>Anniversary Events</h3>
+                    <p>Honoring your long journeys of love with deeply romantic settings and elegant timelines.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1505232458627-a727266d7129?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-body">
+                    <h3>Private Gatherings</h3>
+                    <p>Intimate dining arrangements, high-end family reunions, and exclusive festive get-togethers.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-body">
+                    <h3>Baby Showers</h3>
+                    <p>Welcoming new paths of joy with charming setups, sweet themes, and comfortable pacing.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-body">
+                    <h3>Housewarming Ceremonies</h3>
+                    <p>Traditional values blending beautifully into welcoming spaces for your pristine new home.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-body">
+                    <h3>Corporate Events</h3>
+                    <p>Polished corporate setups, annual dynamic meets, and professional award night gala dinners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>We manage absolutely everything behind the scenes so you simply walk in as a guest</p>
+            </div>
+            <div class="grid-3 services-wrapper">
+                <div class="service-box">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Bespoke Decoration</h3>
+                    <p>Striking, thematic floral layouts and modern aesthetic design tailored uniquely to reflect your personal style narrative.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-camera-retro"></i>
+                    <h3>Premium Photography</h3>
+                    <p>Expert cinematic framing and stunning candid photography capturing every emotion cleanly for absolute lifelong memories.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Gourmet Catering</h3>
+                    <p>Exquisite multi-cuisine menus curated meticulously to satisfy every individual fine palate with ultimate food sanitation.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Venue Booking</h3>
+                    <p>Exclusive access relationships across premium luxury halls, boutique properties, and trendy outdoor open lawns.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-magic"></i>
+                    <h3>All-inclusive Entries</h3>
+                    <p>Spectacular, synchronized grand entry setups, dramatic technical lighting effects, and flawless sound setups.</p>
+                </div>
+                <div class="service-box">
+                    <i class="fas fa-users"></i>
+                    <h3>End-to-End Coordination</h3>
+                    <p>Continuous support guiding vendor timelines smoothly from initial concept down to final event cleanup operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 & 7. Brand Story & Why Choose Us Section -->
+    <section id="about" class="container">
+        <div class="split-section">
+            <div class="story-content">
+                <h2>Our Legacy of Celebration</h2>
+                <div class="story-block">
+                    <h4>The Origin</h4>
+                    <p>Born right in the vibrant heart of Bengaluru, ManiPlanners was established to turn high-stress event scheduling into beautiful, stress-free milestone celebrations.</p>
+                </div>
+                <div class="story-block">
+                    <h4>The Foundation</h4>
+                    <p>We run seamlessly on absolute transparency, precise timing, and pristine structural planning. We believe luxury shouldn't feel unreachable; it should simply be perfectly designed.</p>
+                </div>
+                <div class="story-block">
+                    <h4>The Promise</h4>
+                    <p>No matter the size of the crowd, your peace of mind remains our top metric of professional success. You dream it, we execute it flawlessly.</p>
+                </div>
+            </div>
+            <div class="why-content">
+                <h2>Why Choose ManiPlanners?</h2>
+                <div class="story-block">
+                    <h4><i class="fas fa-check-circle" style="color:var(--primary); margin-right:10px;"></i> 360° Management Ecosystem</h4>
+                    <p>Say goodbye to calling five different vendors. From stunning floral decor and live catering to expert photography—we unite everything under a singular contract seamlessly.</p>
+                </div>
+                <div class="story-block">
+                    <h4><i class="fas fa-check-circle" style="color:var(--primary); margin-right:10px;"></i> Premium Feel, Intelligent Budgets</h4>
+                    <p>We possess the rare structural skill to curate high-end premium event vibes while protecting your budget through intelligent vendor sourcing pipelines.</p>
+                </div>
+                <div class="story-block">
+                    <h4><i class="fas fa-check-circle" style="color:var(--primary); margin-right:10px;"></i> Strict Timelines & Turnaround</h4>
+                    <p>We understand unexpected tight deadlines. Our experienced crew adapts instantly to orchestrate prompt solutions, guaranteeing your event kicks off perfectly without delay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. The Process Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>How It Works</h2>
+            <p>Your seamless 5-step journey to a worry-free premium event layout</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <h3>Understand</h3>
+                <p>We map out your vision, scale, preferences, and ideal budget metrics closely.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <h3>Plan</h3>
+                <p>Our creative team designs digital mood boards and custom service outlines.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <h3>Coordinate</h3>
+                <p>We lock in premium locations, vendors, and entertainment schedules seamlessly.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">04</div>
+                <h3>Execute</h3>
+                <p>Our on-ground logistics managers direct operations effortlessly behind the curtains.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">05</div>
+                <h3>Celebrate</h3>
+                <p>You enjoy pure luxury moments with loved ones while we take care of the rest.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kind Words From Clients</h2>
+                <p>Real stories from families and businesses who trusted our signature approach</p>
+            </div>
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <p>"ManiPlanners transformed our community hall into a premium luxury reception space. The custom entryway left all our guests amazed. Absolutely brilliant execution!"</p>
+                    <h4>— Rajesh &amp; Priya K.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Managing my daughter's first birthday party felt entirely effortless. They coordinated the theme decoration, dynamic lighting, and children's catering beautifully."</p>
+                    <h4>— Preethi Sharma</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Extremely reliable corporate event partners. Handled our full venue layout and live premium photography elegantly. Highly recommended for premium planning."</p>
+                    <h4>— Vikram N., TechCorp</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FAQ Section -->
+    <section id="faq" class="container">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Clear, direct answers to help you organize your upcoming celebration with ease</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">What exactly does complete event management include? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>Complete event management at ManiPlanners covers everything required to run a smooth celebration. This includes custom thematic decoration design, hiring professional catering teams, establishing specialized audio-visual tech rigs, mapping creative photography schedules, and deploying expert logistics coordinators on-site to resolve issues in real-time.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Why should I hire an event planner instead of sourcing directly? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>Hiring us saves you time, stress, and extra costs. Instead of manually coordinating with separate florists, catering companies, photography crews, and sound technicians, you gain a single point of accountability. We protect your budget using established industry network pricing and ensure all elements align perfectly without timeline clashes.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How does your event pricing system function? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>We work flexibly across transparent price points. We offer fixed package solutions for traditional structures like baby showers or housewarmings, alongside fully customized proposals for large-scale premium gatherings. We specialize in striking the right balance—crafting an upscale, high-end feel while protecting your core parameters carefully.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How early should we lock in our event date with ManiPlanners? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">
+                    <p>To ensure total availability for prime event venues across Bengaluru, we recommend booking our team 4 to 8 weeks in advance. However, if you are coordinating a shorter, urgent schedule, our structural team is fully equipped to deploy premium arrangements on short notice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Contact & Footer Section -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>Mani<span>Planners</span></h2>
+                <p>Bringing premium planning elegance and memorable milestone events to life all over Bengaluru. Ready to design? Let's begin.</p>
+                <div class="social-icons">
+                    <!-- Functional Instagram link -->
+                    <a href="https://www.instagram.com/maniplanners.co" target="_blank" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/917795770464" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#celebrations">Celebrations</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Get In Touch</h3>
+                <!-- Functional click-to-call mobile number link -->
+                <p><i class="fas fa-phone"></i> <a href="tel:+917795770464">+91 77957 70464</a></p>
+                <!-- Functional click-to-email link -->
+                <p><i class="fas fa-envelope"></i> <a href="mailto:10manoj06k@gmail.com">10manoj06k@gmail.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka</p>
+                <div style="margin-top: 20px;">
+                    <a href="https://wa.me/917795770464" target="_blank" class="btn" style="padding: 10px 20px; font-size: 0.9rem;">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ManiPlanners. All Rights Reserved. Crafted for elegant moments.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Accordion Animations -->
+    <script>
+        // Toggle mobile nav window open/close
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile nav view smoothly whenever a user clicks any inside link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Interactive Accordion Functionality for FAQs
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Toggle active state rotation on accordion chevron arrows
+                if(icon.style.transform === 'rotate(180deg)') {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+
+                if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+                    answer.style.maxHeight = '0px';
+                } else {
+                    // Instantly calculate natural scroll height of panel to animate open smoothly
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
